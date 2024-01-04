@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche categories{% endblock %}
+
+{% block body %}
+<h1 class="text-center pt-3 pb-5">Fiche Categorie</h1>
+
+<div class="row">
+    <div class="card mb-3 container">
+    
+        <h4 class="card-header">{{ laCategorie.libelle }}</h4>
+            
+        <img class="avatar mx-auto my-2 img-fluid" src=" {{asset(laCategorie.image) }} ">
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ laCategorie.description }}</li>
+        </ul>
+
+        <div class="card-body">
+            <a href="{{path("categories")}}" class="btn btn-success btn-block text-center">Retour a la liste</a>
+        </div>
+        </div>
+
+        <div class="row">
+            {% for leContact in laCategorie.contacts %}
+            <div class="col-sm-12 col-md-12 col-lg-4">
+                {{include('contact/_ficheContact.html.twig', {'mode':'ficheCategorie'})}}
+            
+                {% endfor %}
+            </div>
+
+    </div>
+{% endblock %}

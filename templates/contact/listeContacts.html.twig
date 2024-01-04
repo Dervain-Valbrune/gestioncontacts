@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des contacts{% endblock %}
+
+{% block body %}
+<h1 class="text-center pt-3 pb-5">Liste des Contacts</h1>
+
+<div class="row">
+    {% for leContact in lesContacts %}
+    <div class="col-sm-12 col-md-12 col-lg-4">
+        {{include('contact/_ficheContact.html.twig', {'mode':'listeContacts'})}}
+    {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des categories{% endblock %}
+
+{% block body %}
+<h1 class="text-center pt-3 pb-5">Liste des categories</h1>
+
+<div class="row">
+    {% for laCategorie in categories %}
+    <div class="col-sm-12 col-md-12 col-lg-4">
+    
+        <div class="card mb-3">
+        
+            <h4 class="card-header">{{ laCategorie.libelle }}</h4>
+                
+            <img class="avatar mx-auto my-2 img-fluid" src=" {{ asset(laCategorie.image) }} ">
+
+            <div class="card-body">
+                <a href="{{path("categorie", {id:laCategorie.id})}}" class="btn btn-success btn-block text-center">Details</a>
+            </div>
+        </div>
+    </div>
+        {% endfor %}
+       
+</div>
+{% endblock %}

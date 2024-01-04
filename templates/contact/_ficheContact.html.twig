@@ -1,0 +1,29 @@
+<div class="card mb-3 {% if leContact.sexe == 0 %} border border-info {% else %} border border-primary {% endif %}">
+            
+                <h4 class="card-header">{{ leContact.prenom }} {{ leContact.nom }}</h4>
+                    
+                <img class="avatar mx-auto my-2 img-fluid" src=" {{ leContact.avatar }} ">
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ leContact.ville }}</li>
+                    <li class="list-group-item">{{ leContact.mail }}</li>
+                    <li class="list-group-item">
+                        {% if leContact.sexe ==0 %}
+                            <span class="badge bg-info">homme</span>
+                        {% else %}
+                            <span class="badge bg-primary">femme</span>
+                        {% endif %}
+                    </li>
+                    {% if mode == 'listeContacts' %}
+                        <li class="list-group-item">
+                            <a class="text-decoration-none" href="{{path('categorie', {'id': leContact.categorie.id})}}">{{ leContact.categorie.libelle }}</a>
+                        </li>
+                    {% endif %}
+                   
+                </ul>
+
+                <div class="card-body">
+                    <a href="{{path("contact", {id:leContact.id})}}" class="btn btn-success btn-block text-center">Details</a>
+                </div>
+                </div>
+            </div>
