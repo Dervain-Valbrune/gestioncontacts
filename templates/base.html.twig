@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Mes contacts{% endblock %}</title>
         <link rel="stylesheet" href="https://bootswatch.com/5/simplex/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ asset('css/styl.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
         {% block stylesheets %}
         {% endblock %}  
 
@@ -17,20 +17,23 @@
     <body>
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Mes contacts</a>
+                <a class="nav-link" href="{{path("contacts")}}"><img class="logo" src="/img/contact.svg" alt="img logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item dropdown">
+                        {# <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestion contact</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{path("contacts")}}">Liste des contacts</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{path("listeContactSexe", {'sexe':0})}}">Liste des hommes</a>
-                            <a class="dropdown-item" href="{{path("listeContactSexe", {'sexe':1})}}">Liste des femmes</a>
-                        </div>
+                            {# <a class="dropdown-item" href="{{path("listeContactSexe", {'sexe':0})}}">Liste des hommes</a>
+                            <a class="dropdown-item" href="{{path("listeContactSexe", {'sexe':1})}}">Liste des femmes</a> #}
+                        <!-- </div>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{path("contacts")}}">Liste des contacts</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{path("categories")}}">Categories</a>

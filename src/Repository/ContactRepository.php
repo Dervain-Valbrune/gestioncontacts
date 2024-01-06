@@ -21,6 +21,14 @@ class ContactRepository extends ServiceEntityRepository
         parent::__construct($registry, Contact::class);
     }
 
+   public function paginationQuery()
+   {
+       return $this->createQueryBuilder('c')
+           ->orderBy('c.id', 'ASC')
+           ->getQuery()
+       ;
+   }
+
 //    /**
 //     * @return Contact[] Returns an array of Contact objects
 //     */
