@@ -21,6 +21,18 @@ class CategorieRepository extends ServiceEntityRepository
         parent::__construct($registry, Categorie::class);
     }
 
+       public function nbContactParCat()
+   {
+       return $this->createQueryBuilder('cat') //table categorie
+           ->select('cat.libelle as libelle', 'count(cat.id) as nbContact')
+           ->join('cat.contacts', 'c') //jointure table contact et categorie
+           ->groupBy('cat.id')
+           ->orderBy('cat.libelle', 'ASC')
+           ->getQuery()
+           ->getResult()
+       ;
+   }
+
 //    /**
 //     * @return Categorie[] Returns an array of Categorie objects
 //     */

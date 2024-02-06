@@ -14,7 +14,7 @@
             <h4 class="card-header">{{ laCategorie.libelle }}</h4>
                 
             <img class="avatar mx-auto my-2 img-fluid" src=" {{ asset(laCategorie.image) }} ">
-
+            <h5><span class="badge bg-primary ms-3">{{ laCategorie.contacts|length }} contacts</span></h5>
             <div class="card-body">
                 <a href="{{path("categorie", {id:laCategorie.id})}}" class="btn btn-success btn-block text-center">Details</a>
             </div>
